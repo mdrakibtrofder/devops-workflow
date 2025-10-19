@@ -53,7 +53,7 @@ const Footer = () => {
         
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2025 DevOps Learning Platform. Educational resource for industrial visits.
+            © 2025 DevOps Workflow Project. Introduction of Git, Docker, Kubernetes, Terraform, Ansible, AWS, Grafana Concepts.
           </p>
           
           <div className="flex gap-4">
