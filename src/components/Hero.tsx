@@ -61,8 +61,8 @@ const Hero = () => {
               <div className="text-sm text-muted-foreground">Practical</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">Free</div>
-              <div className="text-sm text-muted-foreground">Open Access</div>
+              <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">30+</div>
+              <div className="text-sm text-muted-foreground">Examples</div>
             </div>
           </div>
         </div>
