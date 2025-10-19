@@ -97,9 +97,9 @@ const TopicCard = ({ icon: Icon, title, description, examples, workflow, gradien
                 {visualization && (
                   <div>
                     <h3 className="text-lg font-semibold mb-3">Workflow Visualization</h3>
-                    <div className="bg-muted/30 rounded-lg p-4">
+                    <div className="bg-gradient-to-br from-muted/30 to-muted/40 rounded-lg p-4 border border-border/20 flex justify-center items-center">
                       {/* @ts-expect-error - Custom element */}
-                      <lov-mermaid>{visualization}</lov-mermaid>
+                      <lov-mermaid theme="dark">{visualization}</lov-mermaid>
                     </div>
                   </div>
                 )}
