@@ -13,19 +13,28 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface TopicCardProps {
+
   icon: LucideIcon;
+
   title: string;
+
   description: string;
+
   examples: string[];
+
   workflow: string;
+
   gradient?: boolean;
-  visualization?: string;
+
   summary?: string;
+
   codeExample?: string;
+
   scenario?: string;
+
 }
 
-const TopicCard = ({ icon: Icon, title, description, examples, workflow, gradient, visualization, summary, codeExample, scenario }: TopicCardProps) => {
+const TopicCard = ({ icon: Icon, title, description, examples, workflow, gradient, summary, codeExample, scenario }: TopicCardProps) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -64,7 +73,7 @@ const TopicCard = ({ icon: Icon, title, description, examples, workflow, gradien
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
             <Button className="w-full" variant="default">
-              View Details & Visualization
+              View Details
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-4xl max-h-[90vh]">
@@ -94,15 +103,7 @@ const TopicCard = ({ icon: Icon, title, description, examples, workflow, gradien
                   </div>
                 )}
 
-                {visualization && (
-                  <div>
-                    <h3 className="text-lg font-semibold mb-3">Workflow Visualization</h3>
-                    <div className="bg-gradient-to-br from-muted/30 to-muted/40 rounded-lg p-4 border border-border/20 flex justify-center items-center">
-                      {/* @ts-expect-error - Custom element */}
-                      <lov-mermaid theme="dark">{visualization}</lov-mermaid>
-                    </div>
-                  </div>
-                )}
+
 
                 {codeExample && (
                   <div>

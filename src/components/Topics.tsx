@@ -24,13 +24,6 @@ const Topics = () => {
       ],
       workflow: "Git serves as the foundation—every change starts here. Developers commit code, create branches, and merge updates, triggering the entire DevOps pipeline.",
       gradient: true,
-      visualization: `graph LR
-    A[Working Directory] -->|git add| B[Staging Area]
-    B -->|git commit| C[Local Repository]
-    C -->|git push| D[Remote Repository]
-    D -->|git pull| A
-    C -->|git branch| E[Feature Branch]
-    E -->|git merge| C`,
       summary: "Git is a distributed version control system that tracks changes in source code during software development. It enables multiple developers to work together on projects, maintaining a complete history of all changes.",
       scenario: "A developer creates a new feature branch, makes changes, commits them locally, pushes to the remote repository, and creates a pull request for team review before merging into the main branch.",
       codeExample: `# Initialize a new Git repository
@@ -67,13 +60,6 @@ git merge feature/new-feature`
       ],
       workflow: "After code is committed, Docker packages it into containers ensuring 'it works on my machine' becomes 'it works everywhere'.",
       gradient: false,
-      visualization: `graph TD
-    A[Dockerfile] -->|docker build| B[Docker Image]
-    B -->|docker run| C[Container 1]
-    B -->|docker run| D[Container 2]
-    B -->|docker push| E[Docker Registry]
-    E -->|docker pull| F[Production Server]
-    F -->|docker run| G[Running Container]`,
       summary: "Docker is a platform that packages applications and their dependencies into lightweight, portable containers. Containers ensure consistency across development, testing, and production environments.",
       scenario: "A Node.js application is packaged into a Docker image with all its dependencies. The image is then run as a container on any system with Docker installed, ensuring consistent behavior regardless of the underlying infrastructure.",
       codeExample: `# Dockerfile example
@@ -110,19 +96,6 @@ docker rm myapp-container`
       ],
       workflow: "Kubernetes takes Docker containers and orchestrates them across clusters, managing scaling, health checks, and self-healing automatically.",
       gradient: true,
-      visualization: `graph TD
-    A[Kubernetes Cluster] --> B[Master Node]
-    A --> C[Worker Node 1]
-    A --> D[Worker Node 2]
-    B --> E[API Server]
-    B --> F[Scheduler]
-    B --> G[Controller]
-    C --> H[Pod 1]
-    C --> I[Pod 2]
-    D --> J[Pod 3]
-    H --> K[Container]
-    I --> L[Container]
-    J --> M[Container]`,
       summary: "Kubernetes (K8s) is an open-source container orchestration platform that automates deployment, scaling, and management of containerized applications across clusters of hosts.",
       scenario: "A web application runs in multiple pods across different nodes. Kubernetes automatically distributes traffic, scales pods based on CPU usage, and replaces failed pods to maintain the desired state.",
       codeExample: `# deployment.yaml
@@ -167,17 +140,6 @@ kubectl get pods`
       ],
       workflow: "Cloud platforms provide the infrastructure where everything runs—from compute power to databases, enabling global scale and reliability.",
       gradient: false,
-      visualization: `graph TB
-    A[Users] --> B[Load Balancer]
-    B --> C[Web Servers]
-    C --> D[Application Servers]
-    D --> E[Database]
-    D --> F[Cache]
-    C --> G[CDN]
-    D --> H[Object Storage]
-    I[Monitoring] -..-> C
-    I -..-> D
-    I -..-> E`,
       summary: "Cloud platforms (AWS, Azure, GCP) provide on-demand computing resources including servers, storage, databases, and networking. They enable businesses to scale infrastructure without managing physical hardware.",
       scenario: "An e-commerce application uses AWS EC2 for web servers, RDS for the database, S3 for static assets, and CloudFront as CDN. Auto-scaling adjusts server capacity based on traffic patterns.",
       codeExample: `# AWS CLI - Launch EC2 Instance
@@ -211,16 +173,6 @@ aws ec2 describe-instances \\
       ],
       workflow: "Continuous monitoring ensures system health, providing insights into performance bottlenecks and enabling proactive issue resolution.",
       gradient: true,
-      visualization: `graph LR
-    A[Application] --> B[Metrics Exporter]
-    B --> C[Prometheus]
-    C --> D[Grafana Dashboard]
-    A --> E[Log Files]
-    E --> F[Log Aggregator]
-    F --> G[Elasticsearch]
-    G --> H[Kibana]
-    A --> I[Traces]
-    I --> J[Jaeger]`,
       summary: "Monitoring and observability tools collect metrics, logs, and traces from applications and infrastructure. They provide real-time insights into system performance, helping detect and diagnose issues quickly.",
       scenario: "Prometheus scrapes metrics from application endpoints, stores time-series data, and triggers alerts when CPU usage exceeds 80%. Grafana displays these metrics in dashboards, while logs are aggregated in Elasticsearch for analysis.",
       codeExample: `# prometheus.yml configuration
@@ -259,15 +211,6 @@ app.listen(3000);`
       ],
       workflow: "Jenkins automates the entire delivery pipeline—from code commit to production deployment, ensuring rapid and reliable releases.",
       gradient: false,
-      visualization: `graph LR
-    A[Code Commit] --> B[Jenkins Triggers]
-    B --> C[Build Stage]
-    C --> D[Test Stage]
-    D --> E[Security Scan]
-    E --> F[Build Docker Image]
-    F --> G[Deploy to Staging]
-    G --> H[Integration Tests]
-    H --> I[Deploy to Production]`,
       summary: "Jenkins is an automation server that enables continuous integration and continuous delivery (CI/CD). It automates the building, testing, and deployment of applications whenever code changes are committed.",
       scenario: "When a developer pushes code to GitHub, Jenkins automatically triggers a pipeline that builds the application, runs unit tests, builds a Docker image, and deploys it to a staging environment for further testing.",
       codeExample: `// Jenkinsfile
@@ -322,16 +265,6 @@ pipeline {
       ],
       workflow: "Terraform provisions cloud infrastructure programmatically, making infrastructure changes reviewable, repeatable, and version-controlled.",
       gradient: true,
-      visualization: `graph TD
-    A[Terraform Config] --> B[terraform init]
-    B --> C[terraform plan]
-    C --> D[Review Changes]
-    D --> E[terraform apply]
-    E --> F[Cloud Provider API]
-    F --> G[VPC Created]
-    F --> H[Servers Created]
-    F --> I[Database Created]
-    E --> J[State File]`,
       summary: "Terraform is an Infrastructure as Code (IaC) tool that allows you to define cloud and on-premises resources in human-readable configuration files. It manages the complete lifecycle of infrastructure using a declarative approach.",
       scenario: "A DevOps engineer writes Terraform configuration to provision AWS VPC, EC2 instances, RDS database, and S3 buckets. Running 'terraform apply' creates all resources, and changes are tracked in version control.",
       codeExample: `# main.tf
@@ -380,18 +313,6 @@ resource "aws_s3_bucket" "app_bucket" {
       ],
       workflow: "Ansible configures servers and deploys applications, ensuring consistent environments from development to production.",
       gradient: false,
-      visualization: `graph TD
-    A[Ansible Playbook] --> B[Inventory File]
-    A --> C[Ansible Control Node]
-    C -->|SSH| D[Server 1]
-    C -->|SSH| E[Server 2]
-    C -->|SSH| F[Server 3]
-    D --> G[Install Packages]
-    D --> H[Configure Services]
-    E --> G
-    E --> H
-    F --> G
-    F --> H`,
       summary: "Ansible is an automation tool for configuration management, application deployment, and task automation. It uses YAML-based playbooks to describe automation jobs and executes them over SSH without requiring agents.",
       scenario: "An Ansible playbook installs NGINX, configures firewall rules, and deploys a web application across 50 servers simultaneously. All servers reach the same desired state through idempotent operations.",
       codeExample: `# playbook.yml
