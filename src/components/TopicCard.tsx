@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -19,7 +19,7 @@ interface TopicCardProps {
   examples: string[];
   workflow: string;
   gradient?: boolean;
-  visualization?: ReactNode;
+  visualization?: string;
   summary?: string;
   codeExample?: string;
   scenario?: string;
@@ -98,7 +98,8 @@ const TopicCard = ({ icon: Icon, title, description, examples, workflow, gradien
                   <div>
                     <h3 className="text-lg font-semibold mb-3">Workflow Visualization</h3>
                     <div className="bg-muted/30 rounded-lg p-4">
-                      {visualization}
+                      {/* @ts-expect-error - Custom element */}
+                      <lov-mermaid>{visualization}</lov-mermaid>
                     </div>
                   </div>
                 )}
